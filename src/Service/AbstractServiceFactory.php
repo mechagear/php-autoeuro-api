@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Autoeuro\Api\Service;
 
 use Autoeuro\Api\ClientInterface;
+use JMS\Serializer\SerializerInterface;
 
 abstract class AbstractServiceFactory
 {
@@ -13,13 +14,18 @@ abstract class AbstractServiceFactory
     /** @var array<string, AbstractService> */
     private $services;
 
+    /** @var SerializerInterface */
+    private $serializer;
+
     /**
      * AbstractServiceFactory constructor.
      * @param ClientInterface $apiClient
+     * @param SerializerInterface $serializer
      */
-    public function __construct(ClientInterface $apiClient)
+    public function __construct(ClientInterface $apiClient, SerializerInterface $serializer)
     {
         $this->apiClient = $apiClient;
+        $this->serializer = $serializer;
         $this->services = [];
     }
 
@@ -38,10 +44,10 @@ abstract class AbstractServiceFactory
     {
         if (!isset($this->services[$name])) {
             $serviceClass = $this->getServiceClass($name);
-            if ( empty($serviceClass) || !class_exists($serviceClass) || !($serviceClass instanceof AbstractService)) {
+            if (empty($serviceClass) || !class_exists($serviceClass)) {
                 throw new \Exception(sprintf("Unknown service '%s'", $name));
             }
-            $this->services[$name] = new $serviceClass($this->apiClient);
+            $this->services[$name] = new $serviceClass($this->apiClient, $this->serializer);
         }
 
         return $this->services[$name];

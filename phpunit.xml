@@ -1,0 +1,12 @@
+<phpunit convertErrorsToExceptions="true" bootstrap="tests/bootstrap.php">
+        <testsuites>
+            <testsuite name="Base suite">
+                <directory>tests</directory>
+            </testsuite>
+        </testsuites>
+        <filter>
+            <whitelist>
+                <directory>src</directory>
+            </whitelist>
+        </filter>
+</phpunit>
