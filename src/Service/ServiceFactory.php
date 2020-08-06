@@ -1,0 +1,25 @@
+<?php
+declare(strict_types=1);
+
+namespace Autoeuro\Api\Service;
+
+class ServiceFactory extends AbstractServiceFactory
+{
+    /**
+     * @var array<string, string>
+     */
+    private static $classMap = [
+        'brands' => BrandService::class,
+    ];
+
+    /**
+     * @inheritDoc
+     */
+    protected function getServiceClass(string $name): string
+    {
+        if (!isset(self::$classMap[$name])) {
+            throw new \Exception(sprintf("Unknown service '%s'", $name));
+        }
+        return self::$classMap[$name];
+    }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "vendor_name/php-autoeuro-api",
+  "description": "Autoeuro REST API Client for PHP",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Maxim Rodikov",
+      "email": "maxrodikov@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^7.3",
+    "psr/http-client": "~1.0.1",
+    "psr/http-factory": "~1.0.1",
+    "php-http/message-factory": "~1.0.2",
+    "php-http/discovery": "~1.9.1"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~9.2.6"
+  },
+  "autoload": {
+    "psr-4": {
+      "Autoeuro\\Api\\": "src"
+    }
+  }
+}
