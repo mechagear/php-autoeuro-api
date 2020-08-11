@@ -5,7 +5,12 @@ namespace Autoeuro\Api;
 
 use JMS\Serializer\Annotation;
 
-class Brand extends ApiResource
+class Brand extends ApiResponse
 {
+    /**
+     * @var string
+     * @Annotation\Type("string")
+     */
+    protected $maker;
 
 }

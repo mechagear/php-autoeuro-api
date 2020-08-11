@@ -3,16 +3,20 @@ declare(strict_types=1);
 
 namespace Autoeuro\Api\Service;
 
-use Autoeuro\Api\Brand;
+use Autoeuro\Api\ApiResponseMetaTrait;
+use Autoeuro\Api\BrandResponse;
 
 class BrandService extends AbstractService
 {
+    use ApiResponseMetaTrait;
 
-    public function all()
+    /**
+     * @return BrandResponse
+     */
+    public function all(): BrandResponse
     {
         $result = $this->request('get', '/shop/brands');
-        $objects = $this->serializer->deserialize($result->getBody()->getContents(), Brand::class, 'json');
-        return $objects;
+        return $this->serializer->deserialize($result->getBody()->getContents(), BrandResponse::class, 'json');
     }
 
 }

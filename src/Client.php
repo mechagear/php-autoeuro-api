@@ -3,9 +3,12 @@ declare(strict_types=1);
 
 namespace Autoeuro\Api;
 
-use Autoeuro\Api\ApiResource;
+use Autoeuro\Api\ApiResponse;
+use Autoeuro\Api\Service\BalanceService;
 use Autoeuro\Api\Service\BrandService;
+use Autoeuro\Api\Service\DeliveryService;
 use Autoeuro\Api\Service\ServiceFactory;
+use Autoeuro\Api\Service\SubdivisionService;
 use Http\Discovery\Psr17FactoryDiscovery;
 use Http\Discovery\Psr18ClientDiscovery;
 use JMS\Serializer\SerializerBuilder;
@@ -22,6 +25,9 @@ use Autoeuro\Api\ClientInterface as BaseClientInterface;
  * @package Autoeuro\Api
  *
  * @property BrandService $brands
+ * @property SubdivisionService $subdivisions
+ * @property DeliveryService $deliveries
+ * @property BalanceService $balance
  */
 class Client implements BaseClientInterface
 {

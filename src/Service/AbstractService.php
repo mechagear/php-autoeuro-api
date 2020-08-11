@@ -5,6 +5,7 @@ namespace Autoeuro\Api\Service;
 
 use Autoeuro\Api\ClientInterface;
 use JMS\Serializer\SerializerInterface;
+use Psr\Http\Message\ResponseInterface;
 
 abstract class AbstractService
 {
@@ -28,16 +29,9 @@ abstract class AbstractService
         return $this->apiClient;
     }
 
-    protected function request(string $method, string $path, array $params = null)
+    protected function request(string $method, string $path, array $params = null): ResponseInterface
     {
         $params = $params ?? [];
         return $this->getClient()->request($method, $path, $params);
     }
-
-    protected function requestCollection(string $method, string $path, array $params = null)
-    {
-        $params = $params ?? [];
-        return $this->getClient()->request($method, $path, $params);
-    }
-
 }
