@@ -9,10 +9,12 @@ class ServiceFactory extends AbstractServiceFactory
      * @var array<string, string>
      */
     private static $classMap = [
-        'brands' => BrandService::class,
-        'subdivisions' => SubdivisionService::class,
-        'deliveries' => DeliveryService::class,
-        'balance' => BalanceService::class,
+        'brands'        => BrandService::class,
+        'subdivisions'  => SubdivisionService::class,
+        'deliveries'    => DeliveryService::class,
+        'balance'       => BalanceService::class,
+        'products'      => ProductsService::class,
+        'cart'          => CartService::class,
     ];
 
     /**

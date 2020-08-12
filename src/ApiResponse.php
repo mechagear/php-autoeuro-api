@@ -24,7 +24,7 @@ abstract class ApiResponse
         if (method_exists($this, $methodName)) {
             return $this->$methodName();
         }
-        if (property_exists(self::class, $name)) {
+        if (property_exists(static::class, $name)) {
             return $this->{$name};
         }
 

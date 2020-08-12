@@ -5,6 +5,12 @@ namespace Autoeuro\Api;
 
 use JMS\Serializer\Annotation;
 
+/**
+ * Class Delivery
+ * @package Autoeuro\Api
+ *
+ * @property string $key
+ */
 class Delivery extends ApiResponse
 {
     /**

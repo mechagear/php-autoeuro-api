@@ -5,25 +5,23 @@ namespace Autoeuro\Api;
 
 use JMS\Serializer\Annotation;
 
-/**
- * Class Subdivision
- * @package Autoeuro\Api
- *
- * @property string $key
- */
-class Subdivision extends ApiResponse
+class ProductVariant extends ApiResponse
 {
     /**
      * @var string
      * @Annotation\Type("string")
-     * @Annotation\SerializedName("subdivision_key")
      */
-    protected $key;
+    protected $code;
 
     /**
      * @var string
      * @Annotation\Type("string")
-     * @Annotation\SerializedName("subdivision_name")
+     */
+    protected $brand;
+
+    /**
+     * @var string
+     * @Annotation\Type("string")
      */
     protected $name;
 

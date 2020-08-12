@@ -6,7 +6,9 @@ namespace Autoeuro\Api;
 use Autoeuro\Api\ApiResponse;
 use Autoeuro\Api\Service\BalanceService;
 use Autoeuro\Api\Service\BrandService;
+use Autoeuro\Api\Service\CartService;
 use Autoeuro\Api\Service\DeliveryService;
+use Autoeuro\Api\Service\ProductsService;
 use Autoeuro\Api\Service\ServiceFactory;
 use Autoeuro\Api\Service\SubdivisionService;
 use Http\Discovery\Psr17FactoryDiscovery;
@@ -28,6 +30,8 @@ use Autoeuro\Api\ClientInterface as BaseClientInterface;
  * @property SubdivisionService $subdivisions
  * @property DeliveryService $deliveries
  * @property BalanceService $balance
+ * @property ProductsService $products
+ * @property CartService $cart
  */
 class Client implements BaseClientInterface
 {
@@ -69,7 +73,7 @@ class Client implements BaseClientInterface
     public function request(string $method, string $path, array $params = null): ResponseInterface
     {
         $params = $params ?? [];
-        $request = $this->requestFactory->createRequest($method, self::BASE_URL . $path . "/json/" . $this->apiKey . http_build_query($params));
+        $request = $this->requestFactory->createRequest($method, self::BASE_URL . $path . "/json/" . $this->apiKey . '?' . http_build_query($params));
 
         try {
             return $this->httpClient->sendRequest($request);
@@ -78,10 +82,5 @@ class Client implements BaseClientInterface
             echo $e->getMessage();
             throw $e;
         }
-    }
-
-    public function requestCollection()
-    {
-
     }
 }
