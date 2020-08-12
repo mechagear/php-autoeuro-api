@@ -27,5 +27,8 @@
     "psr-4": {
       "Autoeuro\\Api\\": "src"
     }
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit"
   }
 }
