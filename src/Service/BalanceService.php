@@ -3,9 +3,13 @@ declare(strict_types=1);
 
 namespace Autoeuro\Api\Service;
 
-
 use Autoeuro\Api\BalanceResponse;
 
+/**
+ * Class BalanceService
+ * @package Autoeuro\Api\Service
+ *
+ */
 class BalanceService extends AbstractService
 {
 

@@ -15,12 +15,13 @@ class ServiceFactory extends AbstractServiceFactory
         'balance'       => BalanceService::class,
         'products'      => ProductsService::class,
         'cart'          => CartService::class,
+        'order'         => OrderService::class,
     ];
 
     /**
      * @inheritDoc
      */
-    protected function getServiceClass(string $name): string
+    public function getServiceClass(string $name): string
     {
         if (!isset(self::$classMap[$name])) {
             throw new \Exception(sprintf("Unknown service '%s'", $name));

@@ -5,6 +5,12 @@ namespace Autoeuro\Api;
 
 use JMS\Serializer\Annotation;
 
+/**
+ * Class CartProduct
+ * @package Autoeuro\Api
+ *
+ * @property string $itemKey
+ */
 class CartProduct extends Product
 {
 

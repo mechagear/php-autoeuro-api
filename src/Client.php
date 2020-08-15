@@ -3,11 +3,11 @@ declare(strict_types=1);
 
 namespace Autoeuro\Api;
 
-use Autoeuro\Api\ApiResponse;
 use Autoeuro\Api\Service\BalanceService;
 use Autoeuro\Api\Service\BrandService;
 use Autoeuro\Api\Service\CartService;
 use Autoeuro\Api\Service\DeliveryService;
+use Autoeuro\Api\Service\OrderService;
 use Autoeuro\Api\Service\ProductsService;
 use Autoeuro\Api\Service\ServiceFactory;
 use Autoeuro\Api\Service\SubdivisionService;
@@ -19,7 +19,6 @@ use Psr\Http\Client\ClientExceptionInterface;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestFactoryInterface;
 use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\UriInterface;
 use Autoeuro\Api\ClientInterface as BaseClientInterface;
 
 /**
@@ -32,6 +31,7 @@ use Autoeuro\Api\ClientInterface as BaseClientInterface;
  * @property BalanceService $balance
  * @property ProductsService $products
  * @property CartService $cart
+ * @property OrderService $order
  */
 class Client implements BaseClientInterface
 {
@@ -74,10 +74,9 @@ class Client implements BaseClientInterface
     {
         $params = $params ?? [];
         $request = $this->requestFactory->createRequest($method, self::BASE_URL . $path . "/json/" . $this->apiKey . '?' . http_build_query($params));
-
+        echo $request->getUri();
         try {
             return $this->httpClient->sendRequest($request);
-            //return $this->serializer->deserialize($response->getBody()->getContents(), Bran, 'json');
         } catch (ClientExceptionInterface $e) {
             echo $e->getMessage();
             throw $e;

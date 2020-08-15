@@ -11,7 +11,7 @@ use JMS\Serializer\Annotation;
  *
  * @property OrderCreateResult $result
  */
-class OrderCreateResponse extends ApiResponse
+class OrderCreateByCartResponse extends ApiResponse
 {
 
     /**

@@ -5,6 +5,12 @@ namespace Autoeuro\Api;
 
 use JMS\Serializer\Annotation;
 
+/**
+ * Class OrderedProduct
+ * @package Autoeuro\Api
+ *
+ * @property string $orderNumber
+ */
 class OrderedProduct extends Product
 {
 

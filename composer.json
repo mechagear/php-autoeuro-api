@@ -1,5 +1,5 @@
 {
-  "name": "vendor_name/php-autoeuro-api",
+  "name": "mrodikov/php-autoeuro-api",
   "description": "Autoeuro REST API Client for PHP",
   "minimum-stability": "stable",
   "license": "MIT",
@@ -21,7 +21,8 @@
     "phpunit/phpunit": "~9.2.6",
     "guzzlehttp/psr7": "~1.6.1",
     "http-interop/http-factory-guzzle": "~1.0.0",
-    "guzzlehttp/guzzle": "~7.0.1"
+    "guzzlehttp/guzzle": "~7.0.1",
+    "ext-json": "*"
   },
   "autoload": {
     "psr-4": {

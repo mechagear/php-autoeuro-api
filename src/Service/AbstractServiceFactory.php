@@ -33,7 +33,7 @@ abstract class AbstractServiceFactory
      * @param string $name
      * @return string
      */
-    abstract protected function getServiceClass(string $name): string;
+    abstract public function getServiceClass(string $name): string;
 
     /**
      * @param string $name

@@ -5,6 +5,14 @@ namespace Autoeuro\Api;
 
 use JMS\Serializer\Annotation;
 
+/**
+ * Class SearchProductsSets
+ * @package Autoeuro\Api
+ *
+ * @property array<ProductVariant> $variants
+ * @property array<SearchProduct> $codes
+ * @property array<SearchProduct> $crosses
+ */
 class SearchProductsSets extends ApiResponse
 {
     /**

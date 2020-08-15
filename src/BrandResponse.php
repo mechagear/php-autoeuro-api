@@ -5,6 +5,12 @@ namespace Autoeuro\Api;
 
 use JMS\Serializer\Annotation;
 
+/**
+ * Class BrandResponse
+ * @package Autoeuro\Api
+ *
+ * @property array<Brand> $items
+ */
 class BrandResponse extends ApiResponse
 {
     /**

@@ -47,6 +47,7 @@ class ProductsService extends AbstractService
             'date_from' => $dateFrom->format('Y-m-d'),
             'date_to'   => $dateTo->format('Y-m-d'),
         ]);
+        
         return $this->serializer->deserialize($response->getBody()->getContents(), OrderedProductsResponse::class, 'json');
     }
 

@@ -5,6 +5,12 @@ namespace Autoeuro\Api;
 
 use JMS\Serializer\Annotation;
 
+/**
+ * Class OrderedProductsResponse
+ * @package Autoeuro\Api
+ *
+ * @property array<OrderedProduct> $items
+ */
 class OrderedProductsResponse extends ApiResponse
 {
     use ApiResponseMetaTrait;
